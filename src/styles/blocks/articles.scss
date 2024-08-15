@@ -1,0 +1,31 @@
+.articles {
+	position: relative;
+	padding: 0 0 70px;
+
+	&__dots {
+		position: absolute;
+		top: 263px;
+		left: -34px;
+		color: rgba(92, 132, 143, 0.44);
+	}
+
+	&__container {
+		border: 1px solid $white;
+		padding-bottom: 70px;
+	}
+
+	&__title {
+		display: inline-block;
+		background-color: $color-background;
+		padding: 0 23px;
+		margin-top: -25px;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 47px;
+		padding: 0 25px;
+		margin-top: 51px;
+	}
+}

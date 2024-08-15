@@ -1,0 +1,35 @@
+.products {
+	position: relative;
+	padding-bottom: 33px;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 28px;
+		right: 28px;
+		border: 3px solid $color-background;
+		pointer-events: none;
+	}
+
+	&__title {
+		position: relative;
+		z-index: 1;
+		top: -16px;
+		left: 50%;
+		transform: translateX(-50%);
+		display: inline-block;
+		background-color: $color-background-2;
+		padding: 0 20px;
+		font-size: 28px;
+		text-align: center;
+	}
+
+	&__wrapper {
+		display: grid;
+		gap: 24px;
+		//grid-template-columns: repeat(2, 1fr);
+		margin-top: 26px;
+	}
+}

@@ -1,0 +1,29 @@
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 243px;
+	width: 100%;
+	padding: 14px;
+	border-radius: 3px;
+	background-color: $white;
+	color: $color-background;
+	font-size: 16px;
+	line-height: 1.2;
+	text-align: center;
+	cursor: pointer;
+	transition: 0.3s ease;
+
+	&:hover {
+		background-color: rgba($white, 0.7);
+	}
+
+	&--green {
+		background-color: $color-background;
+		color: $white;
+
+		&:hover {
+			background-color: rgba($color-background, 0.7);
+		}
+	}
+}

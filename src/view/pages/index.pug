@@ -1,0 +1,80 @@
+extends ../layouts/default
+
+block vars
+	-
+		const page = {
+			title: 'C3Solutions'
+		};
+
+block main
+	section.hero
+		.hero__bg
+			+picture('hero', 'jpg')
+			a.hero__logo(href='#', target='_blank')
+				+icon('logo')(width='108', height='50')
+		.container.container--small.hero__container
+			+icon('dots-vertical')(class='hero__dots dots', width='134', height='314')
+			.hero__content
+				.hero__title Анатомия ЦОД:
+				.hero__text путеводитель по инженерным решениям
+			.hero__slider.swiper
+				.swiper-wrapper
+					.hero__slide.swiper-slide.
+						C3 Solutions — производитель, поставщик инженерного оборудования для создания и бесперебойного
+						функционирования критической и ИТ-инфраструктуры. Ключевые заказчики — представители сфер госсектора,
+						нефтегаза, телеком, банков, промышленности, ТЭК и др.
+	section.scheme
+		.container.scheme__container
+			.scheme__item
+				.scheme__title Комплекс решений для ЦОД
+				.scheme__image
+					+picture('scheme-1', 'png')
+			.scheme__item.scheme__item--small
+				.scheme__title МикроЦОД
+				.scheme__text Edge-решение <br> «под ключ»
+				.scheme__image
+					+picture('scheme-2', 'png')
+	section.articles
+		+icon('dots-horizontal')(class='articles__dots dots', width='313', height='134')
+		.container.container--small.articles__container
+			+title('Моновендорность:', 'articles__title', 'подход единого «окна»')
+			.articles__wrapper
+				.articles-card
+					.articles-card__photo
+						+picture('articles/1', 'jpg')
+					.articles-card__content
+						.articles-card__name Андрей Штонда, C3 Solutions:
+						.articles-card__quote Построить полностью моновендорный ЦОД сегодня практически невозможно
+						.articles-card__bottom
+							.articles-card__text В российских ЦОД-проектах 2022-2023 гг. значительно выросла доля оборудования российских брендов.
+							+button('Читать полностью', 'articles-card__link', '#')
+				.articles-card
+					.articles-card__photo
+						+picture('articles/2', 'jpg')
+					.articles-card__content
+						.articles-card__name Антон Шинов, Proway:
+						.articles-card__quote Комплексных проектов в ЦОД все больше
+						.articles-card__bottom
+							.articles-card__text Важным фактором при поиске поставщиков систем ЦОД становится наличие качественной вендорской поддержки.
+							+button('Читать полностью', 'articles-card__link', '#')
+	section.safety
+		.safety__dots-wrapper
+			+icon('dots-horizontal')(class='safety__dots dots', width='313', height='134')
+			+icon('dots-horizontal')(class='safety__dots dots', width='313', height='134')
+		.container
+			+title('ИБП, как ключевой элемент <br> энергетической безопасности', 'safety__title')
+			.safety__products.products
+				.products__title Продукты
+				.products__wrapper
+					.products-card
+						.products-card__content
+							.products-card__title Онлайн источники бесперебойного питания для ИТ-оборудования
+							ul.products-card__list
+								li.
+									Предназначены для поддержания бесперебойной работы ИТ-оборудования в ЦОД, серверных комнатах,
+									вычислительных узлах и на рабочих местах в организации в момент отключения электричества.
+								li Решение позволяет минимизировать риски простоя и защитить критически важные системы в любых условиях эксплуатации.
+								li Поможет повысить энергоэффективность инженерной инфраструктуры.
+							+button('Узнать больше', 'button--green products-card__link', '#')
+						.products-card__image
+							+picture('products/1', 'png')

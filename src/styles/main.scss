@@ -1,0 +1,22 @@
+/* Libs */
+@import "./../../node_modules/swiper/swiper";
+
+/* Base */
+@import "base/var";
+@import "base/mixin";
+@import "base/fonts";
+@import "base/global";
+
+/* Blocks */
+@import "blocks/container";
+@import "blocks/button";
+@import "blocks/title";
+@import "blocks/header";
+@import "blocks/footer";
+@import "blocks/hero";
+@import "blocks/scheme";
+@import "blocks/articles-card";
+@import "blocks/articles";
+@import "blocks/products-card";
+@import "blocks/products";
+@import "blocks/safety";
