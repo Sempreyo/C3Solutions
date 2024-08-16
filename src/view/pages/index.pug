@@ -78,3 +78,45 @@ block main
 							+button('Узнать больше', 'button--green products-card__link', '#')
 						.products-card__image
 							+picture('products/1', 'png')
+			.article-preview
+				.article-preview__image
+					+picture('article-preview/1', 'jpg')
+				.article-preview__content
+					.article-preview__title Аналитическая статья по рынку ИБП
+					.article-preview__text Надежное хранение огромных массивов данных – одна из ключевых задач ИТ департамента Пенсионного фонда России.
+					+button('Узнать больше', 'article-preview__link', '#')
+			.chart
+				.chart__window
+					.chart__title Проблема с электропитанием является главной причиной отказов и простоев в работе дата-центров
+					.chart__wrapper
+						.chart__col
+							.chart__legend
+								.chart__square(style="background-color: #30c2c6")
+								span.chart__number(style="color: #30c2c6") 52%
+								span.chart__label Система <br> электроснабжения
+							.chart__legend
+								.chart__square(style="background-color: #ac8ab2")
+								span.chart__number(style="color: #ac8ab2") 19%
+								span.chart__label Система <br> охлаждения
+							.chart__legend
+								.chart__square(style="background-color: #f0c493")
+								span.chart__number(style="color: #f0c493") 19%
+								span.chart__label Сторонний <br> провайдер
+						.chart__canvas
+							canvas#pieDiag
+							.chart__canvas-image
+								+picture('chart-center', 'png')
+						.chart__col
+							.chart__legend.chart__legend--reverse
+								.chart__square(style="background-color: #9acedc")
+								span.chart__number(style="color: #9acedc") 8%
+								span.chart__label ИТ-система <br> (аппаратура и ПО)
+							.chart__legend.chart__legend--reverse
+								.chart__square(style="background-color: #489bd1")
+								span.chart__number(style="color: #489bd1") 7%
+								span.chart__label Сетевая <br> инфраструктура
+							.chart__legend.chart__legend--reverse
+								.chart__square(style="background-color: #acb9c9")
+								span.chart__number(style="color: #acb9c9") 5%
+								span.chart__label Прочие
+					.chart__source Источник: Uptime Institute «Annual Outage Analysis 2024»

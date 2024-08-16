@@ -148,6 +148,57 @@
               </div>
             </div>
           </div>
+          <div class="article-preview">
+            <div class="article-preview__image">
+              <picture>
+                <source srcset="./images/article-preview/1.webp 1x, ./images/article-preview/1@2x.webp 2x" type="image/webp">
+                <source srcset="./images/article-preview/1.webp 1x, ./images/article-preview/1@2x.webp 2x" type="image/webp"><img src="./images/article-preview/1.jpg" srcset="./images/article-preview/1.jpg 1x, ./images/article-preview/1@2x.jpg 2x">
+              </picture>
+            </div>
+            <div class="article-preview__content">
+              <div class="article-preview__title">Аналитическая статья по рынку ИБП</div>
+              <div class="article-preview__text">Надежное хранение огромных массивов данных – одна из ключевых задач ИТ департамента Пенсионного фонда России.</div><a class="button article-preview__link" href="#"><span>Узнать больше</span></a>
+            </div>
+          </div>
+          <div class="chart">
+            <div class="chart__window">
+              <div class="chart__title">Проблема с электропитанием является главной причиной отказов и простоев в работе дата-центров</div>
+              <div class="chart__wrapper">
+                <div class="chart__col">
+                  <div class="chart__legend">
+                    <div class="chart__square" style="background-color: #30c2c6"></div><span class="chart__number" style="color: #30c2c6">52%</span><span class="chart__label">Система <br> электроснабжения</span>
+                  </div>
+                  <div class="chart__legend">
+                    <div class="chart__square" style="background-color: #ac8ab2"></div><span class="chart__number" style="color: #ac8ab2">19%</span><span class="chart__label">Система <br> охлаждения</span>
+                  </div>
+                  <div class="chart__legend">
+                    <div class="chart__square" style="background-color: #f0c493"></div><span class="chart__number" style="color: #f0c493">19%</span><span class="chart__label">Сторонний <br> провайдер</span>
+                  </div>
+                </div>
+                <div class="chart__canvas">
+                  <canvas id="pieDiag"></canvas>
+                  <div class="chart__canvas-image">
+                    <picture>
+                      <source srcset="./images/chart-center.webp 1x, ./images/chart-center@2x.webp 2x" type="image/webp">
+                      <source srcset="./images/chart-center.webp 1x, ./images/chart-center@2x.webp 2x" type="image/webp"><img src="./images/chart-center.png" srcset="./images/chart-center.png 1x, ./images/chart-center@2x.png 2x">
+                    </picture>
+                  </div>
+                </div>
+                <div class="chart__col">
+                  <div class="chart__legend chart__legend--reverse">
+                    <div class="chart__square" style="background-color: #9acedc"></div><span class="chart__number" style="color: #9acedc">8%</span><span class="chart__label">ИТ-система <br> (аппаратура и ПО)</span>
+                  </div>
+                  <div class="chart__legend chart__legend--reverse">
+                    <div class="chart__square" style="background-color: #489bd1"></div><span class="chart__number" style="color: #489bd1">7%</span><span class="chart__label">Сетевая <br> инфраструктура</span>
+                  </div>
+                  <div class="chart__legend chart__legend--reverse">
+                    <div class="chart__square" style="background-color: #acb9c9"></div><span class="chart__number" style="color: #acb9c9">5%</span><span class="chart__label">Прочие</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chart__source">Источник: Uptime Institute «Annual Outage Analysis 2024»</div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

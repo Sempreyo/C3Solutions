@@ -1,0 +1,94 @@
+.chart {
+    $parent: &;
+
+    padding-top: 41px;
+
+    &__window {
+        background-color: $white;
+        padding: 30px 60px 20px;
+        border-radius: 3px;
+    }
+
+    &__title {
+        max-width: 670px;
+        margin: 0 auto;
+        color: $color-background;
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 13px;
+    }
+
+    &__col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__legend {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        & + #{$parent}__legend {
+            margin-top: 45px;
+        }
+
+        &--reverse {
+            flex-direction: row-reverse;
+
+            #{$parent}__label {
+                text-align: right;
+            }
+        }
+    }
+
+    &__square {
+        min-width: 27px;
+        height: 27px;
+    }
+
+    &__number {
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    &__label {
+        color: $black;
+        font-size: 13px;
+    }
+
+    &__canvas {
+        position: relative;
+        min-width: 340px;
+        max-width: 340px;
+        height: 340px;
+    }
+
+    &__canvas-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 131px;
+        height: 131px;
+        background-color: $gray-f7;
+        border-radius: 50%;
+        box-shadow: 0 0 11.6px 4px rgba(0, 0, 0, 0.19);
+    }
+
+    &__source {
+        color: $color-background-2;
+        font-size: 11px;
+        margin-top: 30px;
+    }
+}
