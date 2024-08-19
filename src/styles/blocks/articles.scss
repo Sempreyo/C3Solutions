@@ -1,12 +1,17 @@
 .articles {
 	position: relative;
-	padding: 0 0 70px;
+	padding: 0 40px 70px;
 
 	&__dots {
 		position: absolute;
 		top: 263px;
 		left: -34px;
 		color: rgba(92, 132, 143, 0.44);
+
+		@include max(d) {
+			top: unset;
+			bottom: -10px;
+		}
 	}
 
 	&__container {
@@ -19,13 +24,28 @@
 		background-color: $color-background;
 		padding: 0 23px;
 		margin-top: -25px;
+
+		@include max(t) {
+			font-size: 17px;
+		}
+
+		span {
+			@include max(t) {
+				font-size: 15px;
+			}
+		}
 	}
 
 	&__wrapper {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: 47px;
 		padding: 0 25px;
 		margin-top: 51px;
+
+		@include max(tl) {
+			padding: 0;
+		}
 	}
 }

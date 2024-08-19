@@ -1,37 +1,120 @@
 .products-card {
+	$parent: &;
+
 	display: flex;
 	gap: 24px;
 	background-color: $white;
 	border-radius: 3px;
 	padding: 48px 60px 33px;
 
+	@include max(ti) {
+		padding: 48px 30px 33px;
+	}
+
+	&--vertical {
+		flex-direction: column;
+
+		&:first-child {
+			padding: 0 46px 33px 62px;
+		}
+
+		&:last-child {
+			padding: 0 37px 33px;
+		}
+
+		#{$parent} {
+			&__image {
+				height: 285px;
+
+				@include max(t) {
+					height: auto;
+				}
+
+				img {
+					width: auto;
+					height: auto;
+					object-position: top;
+				}
+			}
+
+			&__content {
+				flex-grow: 1;
+				order: 1;
+				display: flex;
+				flex-direction: column;
+			}
+
+			&__content-inner {
+				margin-bottom: 31px;
+			}
+
+			&__link {
+				align-self: center;
+				max-width: 334px;
+				width: auto;
+				padding: 14px 20px;
+				margin-top: auto;
+			}
+		}
+	}
+
+	&--full {
+		#{$parent} {
+			&__content {
+				max-width: 100%;
+			}
+		}
+	}
+
 	&__content {
 		max-width: 437px;
+
+		@include max(tl) {
+			max-width: 100%;
+		}
 	}
 
 	&__title {
 		color: $color-background;
 		font-weight: 700;
 		font-size: 24px;
+
+		@include max(t) {
+			font-size: 20px;
+		}
+	}
+
+	&__text {
+		color: $black;
+		font-size: 16px;
+		margin-top: 30px;
+
+		@include max(t) {
+			font-size: 14px;
+		}
 	}
 
 	&__list {
 		margin-top: 30px;
 
 		li {
-			display: flex;
-			align-items: flex-start;
-			gap: 8px;
+			position: relative;
 			color: $black;
 			font-size: 16px;
+			padding-left: 21px;
+
+			@include max(t) {
+				font-size: 14px;
+			}
 
 			& + li {
 				margin-top: 23px;
 			}
 
 			&::before {
-				position: relative;
+				position: absolute;
 				top: 3px;
+				left: 0;
 				content: '';
 				min-width: 13px;
 				max-width: 13px;
@@ -39,13 +122,66 @@
 				background-color: $color-background;
 			}
 		}
+
+		&--simple {
+			list-style: unset;
+			padding-left: 20px;
+			margin-top: 20px;
+
+			li {
+				display: list-item;
+				padding-left: 0;
+
+				& + li {
+					margin-top: 14px;
+				}
+
+				&::before {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__group {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 32px;
+		padding-left: 20px;
+
+		@include max(tl) {
+			flex-direction: column;
+		}
+	}
+
+	&__group-col {
+		width: calc(50% - 16px);
+
+		@include max(tl) {
+			width: 100%;
+		}
+
+		&:first-child {
+			padding-top: 50px;
+		}
+
+		p {
+			color: $black;
+		}
 	}
 
 	&__image {
+		@include max(tl) {
+			max-width: 500px;
+			max-height: 100%;
+			margin-top: 30px;
+		}
+
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
+			margin: 0 auto;
 		}
 	}
 

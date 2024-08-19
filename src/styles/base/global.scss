@@ -108,6 +108,22 @@ ol {
 	margin: 0;
 }
 
+.d-none-desktop {
+	display: none;
+
+	@include max(tl) {
+		display: block;
+	}
+}
+
+.d-none-mobile {
+	display: block;
+
+	@include max(tl) {
+		display: none;
+	}
+}
+
 [hidden] {
 	display: none !important;
 }

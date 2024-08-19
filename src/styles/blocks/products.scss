@@ -1,9 +1,11 @@
 .products {
+	$parent: &;
+
 	position: relative;
 	padding-bottom: 33px;
 
 	&::after {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -11,6 +13,52 @@
 		right: 28px;
 		border: 3px solid $color-background;
 		pointer-events: none;
+
+		@include max(ti) {
+			left: 15px;
+			right: 15px;
+		}
+	}
+
+	&--color-inverse {
+		&::after {
+			border-color: $color-background-2;
+		}
+
+		#{$parent} {
+			&__title {
+				background-color: $color-background;
+			}
+		}
+	}
+
+	&--color-white {
+		&::after {
+			border-color: $color-background-2;
+		}
+
+		#{$parent} {
+			&__title {
+				color: $color-background-2;
+				background-color: $white;
+			}
+		}
+
+		.products-card {
+			background-color: rgba($color-background-2, 0.07);
+		}
+	}
+
+	&--columns {
+		#{$parent} {
+			&__wrapper {
+				grid-template-columns: repeat(2, 1fr);
+
+				@include max(ti) {
+					grid-template-columns: repeat(1, 1fr);
+				}
+			}
+		}
 	}
 
 	&__title {
@@ -29,7 +77,6 @@
 	&__wrapper {
 		display: grid;
 		gap: 24px;
-		//grid-template-columns: repeat(2, 1fr);
 		margin-top: 26px;
 	}
 }

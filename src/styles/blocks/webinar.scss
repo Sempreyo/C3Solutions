@@ -1,0 +1,128 @@
+.webinar {
+	$parent: &;
+
+	position: relative;
+	padding-top: 50px;
+
+	&--color-inverse {
+		#{$parent} {
+			&__window::before {
+				background: linear-gradient(180deg, rgba(92, 132, 143, 0) 7.67%, #5c848f 65.76%);
+			}
+
+			&__content {
+				background: linear-gradient(90deg, rgba(92, 132, 143, 0) 26.48%, #5c848f 53.73%);
+
+				@include max(ti) {
+					background: unset;
+				}
+			}
+		}
+	}
+
+	&__dots {
+		position: absolute;
+		bottom: 55px;
+		right: 100%;
+		color: rgba($color-background, 0.44);
+	}
+
+	&__window {
+		position: relative;
+		min-height: 244px;
+		border-radius: 3px;
+		overflow: hidden;
+
+		&::before {
+			@include max(ti) {
+				content: "";
+				position: absolute;
+				inset: 0;
+				z-index: 1;
+				background: linear-gradient(180deg, rgba(48, 194, 198, 0) 7.67%, $color-background 65.76%);
+				pointer-events: none;
+			}
+		}
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 60%;
+		height: 100%;
+
+		@include max(ti) {
+			position: relative;
+			width: 100%;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+
+			@include max(ti) {
+				aspect-ratio: 16 / 9;
+			}
+		}
+	}
+
+	&__play {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 20.5%;
+		transform: translateY(-50%);
+		color: $white;
+
+		@include max(ti) {
+			top: 20px;
+			left: 20px;
+			transform: unset;
+		}
+	}
+
+	&__content {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		width: 100%;
+		min-height: 244px;
+		padding: 22px;
+		background: linear-gradient(90deg, rgba(48, 194, 198, 0) 7.67%, $color-background 45.76%);
+
+		@include max(ti) {
+			background: unset;
+			z-index: 2;
+		}
+	}
+
+	&__content-inner {
+		width: 53%;
+
+		@include max(ti) {
+			width: 100%;
+		}
+	}
+
+	&__type {
+		font-weight: 700;
+		font-size: 20px;
+	}
+
+	&__title {
+		margin-top: 16px;
+	}
+
+	&__text {
+		margin-top: 18px;
+	}
+
+	&__link {
+		max-width: 221px;
+		margin-top: 18px;
+	}
+}

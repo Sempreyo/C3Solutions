@@ -5,6 +5,10 @@
 	margin: 0 auto;
 	box-sizing: border-box;
 
+	@include max(ti) {
+		padding: 0 20px;
+	}
+
 	&--small {
 		max-width: 1000px;
 	}
