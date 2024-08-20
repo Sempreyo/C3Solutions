@@ -38,8 +38,8 @@
 		}
 
 		&:first-child svg {
-			width: 166px;
-			height: 74px;
+			width: 120px;
+			height: 54px;
 
 			@include max(t) {
 				width: 108px;
@@ -48,13 +48,56 @@
 		}
 
 		&:last-child svg {
-			width: 97px;
-			height: 75px;
+			width: 75px;
+			height: 58px;
 
 			@include max(t) {
 				width: 64px;
 				height: 50px;
 			}
 		}
+	}
+
+	&__adv {
+		position: absolute;
+		left: 20px;
+		bottom: 20px;
+		cursor: pointer;
+
+		&:hover {
+			#{$parent}__adv-tooltip {
+				opacity: 1;
+				pointer-events: auto;
+			}
+		}
+
+		span {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 12px;
+
+			&::before {
+				content: "";
+				width: 10px;
+				height: 10px;
+				background-color: $white;
+			}
+		}
+	}
+
+	&__adv-tooltip {
+		position: absolute;
+		left: 0;
+		bottom: calc(100% + 5px);
+		width: 270px;
+		border: 2px solid $white;
+		background: rgba(48, 194, 198, 0.7);
+		backdrop-filter: blur(11px);
+		border-radius: 2px;
+		padding: 20px 10px;
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.3s ease;
 	}
 }

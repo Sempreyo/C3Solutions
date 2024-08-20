@@ -1,0 +1,31 @@
+.button-up {
+	position: fixed;
+	right: 30px;
+	bottom: 110px;
+	z-index: 10;
+	width: 50px;
+	height: 50px;
+	border: 3px solid $black;
+	border-radius: 5px;
+	background-image: url('data:image/svg+xml,<svg fill="%23000000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 8" enable-background="new 0 0 8 8" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><rect x="0.016" y="1.68" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 6.2428 2.2389)" width="5.283" height="1.466"></rect><rect x="3.161" y="1.604" width="1.683" height="6.375"></rect><rect x="2.709" y="1.674" transform="matrix(0.7073 0.7069 -0.7069 0.7073 3.2674 -3.0786)" width="5.284" height="1.465"></rect></g></svg>');
+	background-repeat: no-repeat;
+	background-size: 33px;
+	background-position: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+	cursor: pointer;
+
+	@include max(tl) {
+		bottom: 30px;
+	}
+
+	&--visible {
+		opacity: 0.4;
+		pointer-events: auto;
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+}
