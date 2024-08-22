@@ -10,13 +10,19 @@
 	padding: 45px 0;
 	pointer-events: none;
 
-	&__container {
+	@include max(t) {
+		position: relative;
+		height: auto;
+	}
+	
+	&__logos {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		gap: 46px;
 
 		@include max(t) {
-			justify-content: space-between;
+			justify-content: space-around;
 			gap: 20px;
 		}
 	}
@@ -27,6 +33,18 @@
 
 		&:hover {
 			opacity: 0.7;
+		}
+
+		&:last-child {
+			margin-left: auto;
+
+			@include max(t) {
+				margin-left: 0;
+			}
+
+			@include min(2275) {
+				margin-left: 0;
+			}
 		}
 	}
 }

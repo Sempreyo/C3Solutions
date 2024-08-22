@@ -9,7 +9,7 @@
 		max-width: 832px;
 		width: 52%;
 
-		@include max(ti) {
+		@include max(tl) {
 			height: 126px;
 		}
 
@@ -23,7 +23,7 @@
 			object-fit: cover;
 			aspect-ratio: 19 / 5;
 
-			@include max(ti) {
+			@include max(tl) {
 				aspect-ratio: unset;
 			}
 		}
@@ -54,6 +54,12 @@
 
 		@include max(ti) {
 			gap: 30px;
+		}
+
+		@include max(t) {
+			padding-top: 0;
+			border-left: 0;
+			border-right: 0;
 		}
 	}
 
@@ -97,8 +103,6 @@
 	&__text {
 		font-size: 23px;
 		margin-top: 22px;
-		padding-left: 10px;
-		text-indent: -10px;
 	}
 
 	&__slider-wrapper {

@@ -1,15 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const menu = document.querySelector(".menu");
-	const menuOffset = menu.offsetTop;
 	const buttonUp = document.querySelector(".button-up");
-	let menuHeight = menu.offsetHeight;
-	let scroll = window.pageYOffset;
-	let isScroll = false;
-	let scrollPrev = 0;
 
 	const initMenu = () => {
-		window.addEventListener("scroll", scrollMenuHandler);
-		window.addEventListener("scroll", buttonUpHandler);
+		if (menu) {
+			window.addEventListener("scroll", scrollMenuHandler);
+		}
+	}
+
+	const initButtonUp = () => {
+		if (buttonUp) {
+			window.addEventListener("scroll", buttonUpHandler);
+
+			buttonUp.addEventListener("click", () => {
+				document.querySelector("body").scrollIntoView({
+					behavior: 'smooth'
+				});
+			});
+		}
 	}
 
 	const buttonUpHandler = () => {
@@ -22,13 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	buttonUp.addEventListener("click", () => {
-		document.querySelector("body").scrollIntoView({
-			behavior: 'smooth'
-		});
-	});
-
 	const scrollMenuHandler = () => {
+		const menuOffset = menu.offsetTop;
+		let menuHeight = menu.offsetHeight;
+		let scroll = window.pageYOffset;
+		let isScroll = false;
+		let scrollPrev = 0;
+
 		scroll = window.pageYOffset;
 
 		if (scroll >= menuOffset + menuHeight / 2) {
@@ -46,15 +54,18 @@ document.addEventListener("DOMContentLoaded", () => {
 		scrollPrev = scroll;
 	}
 
-	const menuResizeObserver = new ResizeObserver((entries) => {
-		const [entry] = entries;
-
-		if (entry.contentRect.width > 991) {
-			initMenu();
-		}
-	});
-
-	menuResizeObserver.observe(menu);
+	if (menu) {
+		const menuResizeObserver = new ResizeObserver((entries) => {
+			const [entry] = entries;
+	
+			if (entry.contentRect.width > 991) {
+				initMenu();
+			}
+		});
+	
+		menuResizeObserver.observe(menu);
+	}
 
 	initMenu();
+	initButtonUp();
 });

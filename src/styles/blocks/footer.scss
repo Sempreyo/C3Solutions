@@ -25,9 +25,15 @@
 	&__container {
 		position: relative;
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
 		gap: 70px;
+
+		@include max(t) {
+			justify-content: space-around;
+			gap: 20px;
+		}
 	}
 
 	&__logo {
@@ -47,13 +53,23 @@
 			}
 		}
 
-		&:last-child svg {
+		&:nth-child(2) svg {
 			width: 75px;
 			height: 58px;
 
 			@include max(t) {
 				width: 64px;
 				height: 50px;
+			}
+		}
+
+		&:nth-child(3) svg {
+			width: 95px;
+			height: 18px;
+
+			@include max(t) {
+				width: 110px;
+				height: 21px;
 			}
 		}
 	}

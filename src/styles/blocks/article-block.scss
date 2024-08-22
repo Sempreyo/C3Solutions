@@ -84,17 +84,28 @@
 		h2,
 		h3,
 		h4 {
+			color: $black;
 			margin-top: 15px;
 			margin-bottom: 25px;
 		}
 
-		p {
+		p:not(.popup_img) {
+			color: $black;
 			font-size: 16px;
 			line-height: 1.16;
 			margin-bottom: 20px;
 
 			@include max(t) {
 				font-size: 14px;
+			}
+		}
+
+		a {
+			color: $black;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
 			}
 		}
 
@@ -114,6 +125,43 @@
 
 				@include max(t) {
 					font-size: 14px;
+				}
+			}
+		}
+
+		.image {
+			margin-top: 30px;
+    		margin-bottom: 30px;
+
+			.img-container {
+				position: relative;
+			}
+
+			.img-source,
+			figcaption {
+				color: rgba(0, 0, 0, 0.8);
+				font-size: 14px;
+	
+				@include max(t) {
+					font-size: 12px;
+				}
+			}
+
+			.img-source {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, 0.6);
+				padding: 8px 10px;
+				transition: background-color 0.3s ease;
+
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.3);
+				}
+
+				a {
+					color: #fff;
+    				text-decoration: none;
 				}
 			}
 		}
