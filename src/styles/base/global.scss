@@ -127,3 +127,97 @@ ol {
 [hidden] {
 	display: none !important;
 }
+
+/* Swiper */
+.swiper-nav {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 10;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	pointer-events: none;
+
+	@include max(ti) {
+		display: none;
+	}
+
+	.swiper-btn-prev,
+	.swiper-btn-next {
+		position: relative;
+		cursor: pointer;
+		pointer-events: auto;
+
+		&:hover svg {
+			color: rgba($white, 0.7);
+		}
+
+		svg {
+			transition: 0.3s ease;
+		}
+	}
+
+	&--outside {
+		.swiper-btn-prev,
+		.swiper-btn-next {
+			svg {
+				width: 30px;
+				height: 58px;
+
+				@include max(d) {
+					width: 25px;
+					height: 48px;
+				}
+			}
+		}
+
+		.swiper-btn-prev {
+			left: -50px;
+
+			@include max(d) {
+				left: -34px;
+			}
+		}
+
+		.swiper-btn-next {
+			right: -50px;
+
+			@include max(d) {
+				right: -34px;
+			}
+		}
+	}
+}
+
+.swiper-pagination {
+	display: none;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+
+	@include max(ti) {
+		display: flex;
+	}
+
+	.swiper-pagination-bullet {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background-color: $white;
+		cursor: pointer;
+		transition: 0.3s ease;
+
+		&:hover {
+			background-color: rgba($white, 0.7);
+		}
+	}
+
+	.swiper-pagination-bullet-active {
+		width: 14px;
+		height: 14px;
+	}
+}

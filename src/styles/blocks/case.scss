@@ -1,10 +1,15 @@
 .case {
 	display: flex;
 	align-items: center;
-	padding-top: 62px;
+	height: 100% !important;
+	//padding-top: 62px;
 
 	@include max(d) {
 		align-items: unset;
+	}
+
+	@include max(tl) {
+		height: auto !important;
 	}
 
 	@include max(ti) {
@@ -45,9 +50,11 @@
 	&__image {
 		position: relative;
 		width: 41%;
+		height: 100%;
 
 		@include max(tl) {
 			width: 100%;
+			height: auto;
 			margin-top: 30px;
 		}
 

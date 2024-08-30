@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const initMenu = () => {
 		if (menu) {
+			let currentScroll = 0;
+
 			window.addEventListener("scroll", scrollMenuHandler);
 		}
 	}
@@ -31,27 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	const scrollMenuHandler = () => {
-		const menuOffset = menu.offsetTop;
-		let menuHeight = menu.offsetHeight;
-		let scroll = window.pageYOffset;
+		let top = window.pageYOffset;
 		let isScroll = false;
-		let scrollPrev = 0;
 
-		scroll = window.pageYOffset;
-
-		if (scroll >= menuOffset + menuHeight / 2) {
-			if (scroll < scrollPrev) {
-				isScroll = true;
-
-				menuHeight = isScroll ? menu.offsetHeight : null;
-				menu.classList.remove("menu--opened");
-			} else {
-				isScroll = false;
-				menu.classList.add("menu--opened");
-			}
+		if (scroll > top) {
+			menuHeight = isScroll ? menu.offsetHeight : null;
+			menu.classList.remove("menu--opened");
+		} else if (scroll < top) {
+			isScroll = false;
+			menu.classList.add("menu--opened");
 		}
-
-		scrollPrev = scroll;
+		scroll = top;
 	}
 
 	if (menu) {

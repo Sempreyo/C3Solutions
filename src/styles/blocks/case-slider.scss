@@ -1,0 +1,12 @@
+.case-slider {
+	position: relative;
+	margin-top: 35px;
+
+	.swiper-wrapper {
+		align-items: center;
+	}
+
+	&__pagination {
+		margin-top: 35px;
+	}
+}

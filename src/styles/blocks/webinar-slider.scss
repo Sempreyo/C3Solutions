@@ -1,0 +1,13 @@
+.webinar-slider {
+	position: relative;
+	padding: 0 50px;
+	margin: 35px -50px 0;
+
+	.swiper-wrapper {
+		align-items: center;
+	}
+
+	&__pagination {
+		margin-top: 35px;
+	}
+}
