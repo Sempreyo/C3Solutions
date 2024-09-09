@@ -51,32 +51,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* Ховер на свг в картинке */
-    if (window.matchMedia("(min-width: 768px)").matches) {
-        const svgParts = document.querySelectorAll(".scheme__image-hover g[data-part]");
-        const tooltips = document.querySelectorAll('.tooltip');
-        const hint = document.querySelector(".tooltip__hint");
-        svgParts.forEach(el => {
-            el.addEventListener("click", () => {
-                svgParts.forEach(el => el.classList.remove('-active'));
-                el.classList.add('-active');
-                tooltips.forEach(el => el.classList.remove('-open'));
-                document.querySelector(".tooltip--" + el.dataset.part).classList.add("-open");
-            });
-
-            el.addEventListener("mouseover", () => {
-                hint.classList.add("-open")
-            });
-
-            el.addEventListener("mouseleave", () => {
-                hint.classList.remove("-open")
-            });
-
-            el.addEventListener('mousemove', (e) => {
-                hint.style.top = e.pageY - hint.offsetHeight / 2 + 'px';
-                hint.style.left = e.pageX + 45 + 'px';
-            });
+    const svgParts = document.querySelectorAll(".scheme__image-hover g[data-part]");
+    const tooltips = document.querySelectorAll('.tooltip');
+    const hint = document.querySelector(".tooltip__hint");
+    
+    svgParts.forEach(el => {
+        el.addEventListener("click", () => {
+            svgParts.forEach(el => el.classList.remove('-active'));
+            el.classList.add('-active');
+            tooltips.forEach(el => el.classList.remove('-open'));
+            document.querySelector(".tooltip--" + el.dataset.part).classList.add("-open");
         });
-    }
+
+        el.addEventListener("mouseover", () => {
+            hint.classList.add("-open")
+        });
+
+        el.addEventListener("mouseleave", () => {
+            hint.classList.remove("-open")
+        });
+
+        el.addEventListener('mousemove', (e) => {
+            hint.style.top = e.pageY - hint.offsetHeight / 2 + 'px';
+            hint.style.left = e.pageX + 45 + 'px';
+        });
+    });
 
     /* Якорь к элементу */
     /*
