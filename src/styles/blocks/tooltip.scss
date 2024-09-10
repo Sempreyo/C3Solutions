@@ -22,14 +22,25 @@
 	}
 	&__hint {
 		position: absolute;
-	    z-index: 4;
+	    z-index: 11;
+	    width: 300px;
 	    color: rgb(48, 194, 198);
 	    visibility: hidden;
 	    opacity: 0;
 	    transition: opacity .3s ease;
-	    background: white;
 	    padding: 15px 20px;
-	    border: 2px solid rgb(48, 194, 198);
+	    background: rgba(48, 194, 198, 0.7);
+		backdrop-filter: blur(11px);
+	    color:white;
+	    &:before{
+	    	content:"";
+	    	position: absolute; 
+		    left: -20px; 
+		    top:50%;
+		    border: 10px solid transparent; 
+		    transform:translateY(-50%);
+		    border-right: 10px solid rgba(48, 194, 198, 0.7);
+	    }
 	    &.-open {
 			opacity: 1;
 			visibility: visible;
