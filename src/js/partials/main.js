@@ -64,7 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         el.addEventListener("mouseover", () => {
-            hint.classList.add("-open")
+            hint.classList.add("-open");
+            let domBlock = document.querySelector(`.tooltip--${el.dataset.part}`);
+            let currentTitle = domBlock.querySelector('.tooltip__title').innerHTML;
+            hint.innerHTML = currentTitle;
+            svgParts.forEach(el => el.classList.remove('-active'));
+            el.classList.add('-active');
+            tooltips.forEach(el => el.classList.remove('-open'));
+            document.querySelector(".tooltip--" + el.dataset.part).classList.add("-open");
         });
 
         el.addEventListener("mouseleave", () => {
