@@ -3,35 +3,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (chart) {
         new Chart(chart, {
-            type: 'pie',
-            data: {
-                datasets: [{
-                    data: [
-                        {
-                            key: "Система электроснабжения",
-                            value: 52
+            plugins: [ChartDataLabels],
+            type: "doughnut",
+            options: {
+                cutout: 60,
+                plugins: {
+                    datalabels: {
+                        color: "black",
+                        font: {
+                            size: "8",
                         },
-                        {
-                            key: "Система   охлаждения",
-                            value: 19
-                        },
-                        {
-                            key: "Сторонний провайдер",
-                            value: 19
-                        },
-                        {
-                            key: "ИТ-система (аппаратура и ПО)",
-                            value: 8
-                        },
-                        {
-                            key: "Сетевая инфраструктура",
-                            value: 7
-                        },
-                        {
-                            key: "Прочие",
-                            value: 5
+                        textAlign: "center",
+                        formatter: function (value, context) {
+                            return context.chart.data.labels[context.dataIndex] + "\n" + value + "%";
                         }
-                    ],
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                }
+            },
+            data: {
+                labels: [
+                    "Система \n электроснабжения",
+                    "Система \n охлаждения",
+                    "Сторонний \n провайдер",
+                    "ИТ-система \n (аппаратура \n и ПО)",
+                    "Сетевая \n инфраст \n руктура",
+                    "Прочие"
+                ],
+                datasets: [{
+                    data: [52, 19, 9, 8, 7, 5],
                     backgroundColor: [
                         "#30c2c6",
                         "#ac8ab2",
