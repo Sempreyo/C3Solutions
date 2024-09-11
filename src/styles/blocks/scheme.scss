@@ -1,6 +1,5 @@
 .scheme {
 	$parent: &;
-
 	padding: 24px 0 70px;
 	overflow: hidden;
 
@@ -102,19 +101,40 @@
 
 		g {
 			display: block;
-			cursor: pointer;
-
+			cursor: url('/images/btn.png') 56 0, auto;
+			&.-animate{
+				opacity: .4;
+				animation-duration: 3s;
+				animation-name: pulse;
+				animation-iteration-count: infinite;
+			}
 			&.-active {
 				path {
 					stroke: $white;
 				}
-			}
-
-			&:hover {
-				path {
-					stroke: $white;
+				&:hover {
+					path {
+						stroke: $white;
+					}
 				}
 			}
+			&:hover {
+				path {
+					stroke: rgba(255,255,255, 0.9);
+				}
+			}
+			
+		}
+		@keyframes pulse {
+		  0% {
+		    opacity: 0.4;
+		  }
+		  50% {
+		    opacity: 1;
+		  }
+		  100%{
+		  	opacity: 0.4;
+		  }
 		}
 	}
 }

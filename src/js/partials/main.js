@@ -59,33 +59,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const svgParts = document.querySelectorAll(".scheme__image-hover g[data-part]");
     const tooltips = document.querySelectorAll('.tooltip');
     const hint = document.querySelector(".tooltip__hint");
-    
+    const clostBg = document.querySelector('.tooltip__closebackground');
+    const clostBtn = document.querySelectorAll('.tooltip__close');
+
     svgParts.forEach(el => {
         el.addEventListener("click", () => {
-            svgParts.forEach(el => el.classList.remove('-active'));
+            svgParts.forEach(el => el.classList.remove('-active', '-animate'));
             el.classList.add('-active');
+            clostBg.classList.add('-open');
             tooltips.forEach(el => el.classList.remove('-open'));
             document.querySelector(".tooltip--" + el.dataset.part).classList.add("-open");
         });
 
-        el.addEventListener("mouseover", () => {
-            hint.classList.add("-open");
+        el.addEventListener("mouseover", (e) => {
             let domBlock = document.querySelector(`.tooltip--${el.dataset.part}`);
             let currentTitle = domBlock.querySelector('.tooltip__title').innerHTML;
+            hint.classList.add("-open");
             hint.innerHTML = currentTitle;
-            svgParts.forEach(el => el.classList.remove('-active'));
-            el.classList.add('-active');
-            tooltips.forEach(el => el.classList.remove('-open'));
-            document.querySelector(".tooltip--" + el.dataset.part).classList.add("-open");
         });
 
         el.addEventListener("mouseleave", () => {
-            hint.classList.remove("-open")
+            hint.classList.remove("-open");
+
         });
 
         el.addEventListener('mousemove', (e) => {
-            hint.style.top = e.pageY - hint.offsetHeight / 2 + 'px';
-            hint.style.left = e.pageX + 45 + 'px';
+            hint.style.top = e.pageY - hint.offsetHeight - 30 +'px';
+            hint.style.left = e.pageX - hint.offsetWidth/2 + 'px';
         });
     });
 
@@ -107,15 +107,18 @@ document.addEventListener("DOMContentLoaded", () => {
     */
 
     /*Закрытие окна*/
-
-    const clostBtn = document.querySelectorAll('.tooltip__close');
-
     clostBtn.forEach(t => {
         t.addEventListener("click", () => {
-            const tooltips = document.querySelectorAll('.tooltip');
             tooltips.forEach(el => el.classList.remove('-open'));
-            const gsvg = document.querySelectorAll('.scheme__image-hover g[data-part]');
-            gsvg.forEach(el => el.classList.remove('-active'));
+            svgParts.forEach(el => el.classList.remove('-active'));
+            clostBg.classList.remove('-open');
         });
     })
+
+    clostBg.addEventListener("click", () => {
+        tooltips.forEach(el => el.classList.remove('-open'));
+        svgParts.forEach(el => el.classList.remove('-active'));
+        clostBg.classList.remove('-open');
+    });
+
 });

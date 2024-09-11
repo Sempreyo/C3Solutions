@@ -35,11 +35,12 @@
 	    &:before{
 	    	content:"";
 	    	position: absolute; 
-		    left: -20px; 
-		    top:50%;
-		    border: 10px solid transparent; 
-		    transform:translateY(-50%);
-		    border-right: 10px solid rgba(48, 194, 198, 0.7);
+		    left: 50%;
+		    bottom:0;
+		    transform:translateY(20px) translateX(-20px);
+		    border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 20px solid rgba(48, 194, 198, 0.7);
 	    }
 	    &.-open {
 			opacity: 1;
@@ -56,6 +57,20 @@
 	    background-size: cover;
 	    z-index: 4;
 	    cursor: pointer;
+	}
+	&__closebackground{
+		position: absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+		visibility: hidden;
+		opacity: 0;
+		z-index: 4;
+		&.-open {
+			opacity: 1;
+			visibility: visible;
+		}
 	}
 	/*
 	&__stick {
