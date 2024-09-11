@@ -1,6 +1,44 @@
 .chart {
     $parent: &;
+
     padding-top: 41px;
+
+    &--2 {
+        #{$parent} {
+            &__canvas {
+                position: relative;
+                min-width: 250px;
+                max-width: 250px;
+                height: 250px;
+            }
+
+            &__wrapper {
+                gap: 50px;
+        
+                @include max(ti) {
+                    gap: 20px;
+                }
+            }
+
+            &__col {
+                &:first-child {
+                    width: calc(35% - 10px);
+        
+                    @include max(ti) {
+                        width: calc(35% - 10px);
+                    }
+                }
+
+                &:last-child {
+                    width: calc(65% - 10px);
+        
+                    @include max(ti) {
+                        width: calc(65% - 10px);
+                    }
+                }
+            }
+        }
+    }
 
     &__window {
         background-color: $white;
@@ -134,8 +172,8 @@
         }
 
         img {
-            width: 90%;
-            height: 90%;
+            width: 75%;
+            height: 75%;
             object-fit: contain;
             margin: 0 auto;
         }
