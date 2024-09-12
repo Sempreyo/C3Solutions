@@ -32,6 +32,9 @@
 	    background: rgba(48, 194, 198, 0.7);
 		backdrop-filter: blur(11px);
 	    color:white;
+	    @include max(tl) {
+	    	display: none;
+	    }
 	    &:before{
 	    	content:"";
 	    	position: absolute; 

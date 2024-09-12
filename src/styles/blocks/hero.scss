@@ -43,7 +43,7 @@
 		gap: 83px;
 		padding-top: 149px;
 		padding-bottom: 40px;
-		border: 1px solid $white;
+		border: 3px solid $white;
 		border-top: 0;
 
 		@include max(tl) {
@@ -125,7 +125,7 @@
 	}
 
 	&__slide {
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 1.3;
 	}
 
