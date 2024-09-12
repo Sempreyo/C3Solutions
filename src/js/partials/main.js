@@ -355,6 +355,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     */
 
+    document.addEventListener('scroll', ()=>{
+        tooltips.forEach(el => el.classList.remove('-open'));
+        svgParts.forEach(el => el.classList.remove('-active'));
+        clostBg.classList.remove('-open');
+    });
+
     /*Закрытие окна*/
     clostBtn.forEach(t => {
         t.addEventListener("click", () => {

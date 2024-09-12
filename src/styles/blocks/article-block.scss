@@ -171,13 +171,20 @@
 
 			.img-container {
 				position: relative;
+				.popup_img{
+					display: inline-block;
+					width: 100%;
+				}
 			}
-
+			img{
+				margin: auto;
+			}
 			.img-source,
 			figcaption {
 				color: rgba(0, 0, 0, 0.8);
 				font-size: 14px;
-	
+				text-align: center;
+				margin: 40px 0 20px;
 				@include max(t) {
 					font-size: 12px;
 				}
@@ -185,8 +192,9 @@
 
 			.img-source {
 				position: absolute;
-				bottom: 0;
-				left: 0;
+				bottom: -40px;
+				left: 50%;
+				transform:translateX(-50%);
 				background-color: rgba(0, 0, 0, 0.6);
 				padding: 8px 10px;
 				transition: background-color 0.3s ease;

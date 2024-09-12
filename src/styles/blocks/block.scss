@@ -138,8 +138,6 @@
 	&--7 {
 		#{$parent} {
 			&__title {
-				padding-left: 155px;
-				text-indent: -155px;
 			}
 		}
 	}
@@ -152,8 +150,6 @@
 			}
 
 			&__title {
-				padding-left: 100px;
-				text-indent: -100px;
 			}
 		}
 
@@ -205,9 +201,6 @@
 	}
 
 	&__title {
-		padding-left: 60px;
-		text-indent: -60px;
-
 		@include max(tl) {
 			padding-left: 0;
 			text-indent: 0;

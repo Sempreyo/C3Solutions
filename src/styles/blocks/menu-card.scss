@@ -1,10 +1,9 @@
 .menu-card {
 	$parent: &;
-
 	position: relative;
-	width: 59px;
-	height: 78px;
-	padding-top: 4px;
+	width: 77px;
+    height: 93px;
+	padding-top: 8px;
 	border-radius: 3px;
 	background: rgba(48, 194, 198, 0.8);
 	box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.15);
@@ -15,10 +14,9 @@
 	&:hover {
 		z-index: 2;
 		transform: scale(1.23);
-
+		padding-top:30px;
 		#{$parent} {
 			&__title {
-				position: relative;
 				opacity: 1;
 			}
 		}
@@ -26,11 +24,12 @@
 
 	&__title {
 		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
+		top: 7px;
+		left: 5px;
+		right: 5px;
 		opacity: 0;
 		font-size: 7px;
+		transition: 0.3s ease;
 		text-transform: uppercase;
 		text-align: center;
 	}
