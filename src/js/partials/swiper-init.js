@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const heroCarousel = document.querySelectorAll(".hero__slider");
 	const casesCarousel = document.querySelectorAll(".case-slider__wrapper");
 	const webinarCarousel = document.querySelectorAll(".webinar-slider__wrapper");
+	const chartsCarousel = document.querySelectorAll(".chart-slider__wrapper");
 
 	if (heroCarousel.length > 0) {
 		heroCarousel.forEach(elem => {
@@ -63,6 +64,28 @@ document.addEventListener("DOMContentLoaded", () => {
 				navigation: {
 					nextEl: casesCarouselNext,
 					prevEl: casesCarouselPrev,
+				}
+			});
+		});
+	}
+
+	if (chartsCarousel) {
+		chartsCarousel.forEach(elem => {
+			const chartsCarouselNext = elem.nextElementSibling.querySelector(".swiper-btn-next");
+			const chartsCarouselPrev = elem.nextElementSibling.querySelector(".swiper-btn-prev");
+
+			const slider = new Swiper(elem, {
+				slidesPerView: 1,
+				spaceBetween: 10,
+				loop: true,
+				autoHeight: true,
+				pagination: {
+					el: ".chart-slider__pagination",
+					clickable: true
+				},
+				navigation: {
+					nextEl: chartsCarouselNext,
+					prevEl: chartsCarouselPrev,
 				}
 			});
 		});

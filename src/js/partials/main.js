@@ -1,18 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
     const chart1 = document.getElementById("diag1");
     const chart2 = document.getElementById("diag2");
+    const chart3 = document.getElementById("diag3");
+    const chart4 = document.getElementById("diag4");
+    const w575 = window.matchMedia("(max-width: 575px)");
+    const w767 = window.matchMedia("(max-width: 767px)");
 
     if (chart1) {
         new Chart(chart1, {
             plugins: [ChartDataLabels],
             type: "doughnut",
             options: {
-                cutout: 60,
+                cutout: w575.matches ? 40 : 60,
                 plugins: {
                     datalabels: {
                         color: "black",
                         font: {
-                            size: "8",
+                            size: w575.matches ? "7" : "8",
                         },
                         textAlign: "center",
                         formatter: function (value, context) {
@@ -45,8 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         "#9acedc",
                         "#489bd1",
                         "#acb9c9"
-                    ],
-                    hoverOffset: 4
+                    ]
                 }]
             }
         });
@@ -57,13 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
             plugins: [ChartDataLabels],
             type: "doughnut",
             options: {
-                rotation: 41,
-                cutout: 60,
+                rotation: w767.matches ? 127 : 41,
+                cutout: 30,
                 plugins: {
                     datalabels: {
                         color: "black",
                         font: {
-                            size: "13",
+                            size: "10",
                         },
                         textAlign: "center",
                         formatter: function (value, context) {
@@ -90,8 +93,208 @@ document.addEventListener("DOMContentLoaded", () => {
                         "#95d5de",
                         "#b094c4",
                         "#f9d098"
-                    ],
-                    hoverOffset: 4
+                    ]
+                }]
+            }
+        });
+    }
+
+    if (chart3) {
+        new Chart(chart3, {
+            plugins: [ChartDataLabels],
+            type: "bar",
+            options: {
+                indexAxis: "y",
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        display: false
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        border: {
+                            display: false
+                        },
+                        ticks: {
+                            display: !w767.matches,
+                            beginAtZero: true
+                        }
+                    }
+                },
+                plugins: {
+                    datalabels: {
+                        labels: {
+                            index: {
+                                color: "white",
+                                font: {
+                                    size: "14",
+                                },
+                                textAlign: "left",
+                                formatter: function (value) {
+                                    return value + "%";
+                                }
+                            },
+                            name: w767.matches ? {
+                                align: -45,
+                                anchor: "start",
+                                offset: 12,
+                                padding: {
+                                    left: 1
+                                },
+                                color: "black",
+                                font: {
+                                    size: "13",
+                                },
+                                textAlign: "left",
+                                formatter: function (value, context) {
+                                    return context.chart.data.labels[context.dataIndex];
+                                }
+                            } : ""
+                        }
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                }
+            },
+            data: {
+                labels: [
+                    "Отказ ИБП",
+                    ["Отказ АВР (при переключении", "с электросети)"],
+                    "Отказ генератора",
+                    "Отказ контроллера",
+                    ["Отказ АВР", "(между путями А и В)"],
+                    ["Отключение ИТ-оборудования", "с одним блоком питания"],
+                    "Отказ PDU"
+                ],
+                datasets: [{
+                    axis: "y",
+                    data: [40, 27, 27, 19, 17, 15, 14],
+                    fill: false,
+                    barThickness: 25,
+                    backgroundColor: [
+                        "#166198",
+                        "#16b5ec",
+                        "#308bc4",
+                        "#70d7f6",
+                        "#a8c9da",
+                        "#98dce5",
+                        "#75a9c1"
+                    ]
+                }]
+            }
+        });
+    }
+
+    if (chart4) {
+        new Chart(chart4, {
+            plugins: [ChartDataLabels],
+            type: "bar",
+            options: {
+                indexAxis: "y",
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        display: false,
+                        grace: w767.matches ? 0 : 40
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        border: {
+                            display: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    datalabels: {
+                        labels: {
+                            index: w767.matches ? "" : {
+                                align: "center",
+                                color: "black",
+                                font: {
+                                    size: "14",
+                                },
+                                formatter: function(value) {
+                                    if (value < 4) {
+                                        return "";
+                                    } else {
+                                        return value + "%";
+                                    }
+                                }
+                            },
+                            name: w767.matches ? "" : {
+                                align: "end",
+                                anchor: "end",
+                                color: "black",
+                                font: {
+                                    size: "13",
+                                },
+                                formatter: function (value, context) {
+                                    return context.chart.data.labels[context.dataIndex];
+                                }
+                            },
+                            value: w767.matches ? {
+                                align: -5,
+                                anchor: "start",
+                                offset: 8,
+                                padding: {
+                                    left: 5
+                                },
+                                color: "black",
+                                font: {
+                                    size: w767.matches ? "10" : "13",
+                                },
+                                textAlign: "left",
+                                formatter: function (value, context) {
+                                    return context.chart.data.labels[context.dataIndex] + " (" + value + "%)";
+                                }
+                            } : ""
+                        }
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                }
+            },
+            data: {
+                labels: w767.matches ? [
+                    "Компания (например, \n интегратор, но не вендор), \n осуществлявшая монтаж \n и/или ПНР оборудования",
+                    "Независимая \n специализированная \n сервисная компания",
+                    "Вендор – производитель \n оборудования",
+                    "Наши собственные \n специалисты",
+                    "Другое (уточните)"
+                ] : [
+                    ["3.91%", "Компания (например, интегратор, но не вендор), осуществлявшая монтаж", "и/или ПНР оборудования"],
+                    "Независимая специализированная сервисная компания",
+                    ["Вендор – производитель", "оборудования"],
+                    "Наши собственные специалисты",
+                    "Другое (уточните)"
+                ],
+                datasets: [{
+                    axis: "y",
+                    data: [3.91, 19.61, 68.63, 15.69, 9.8],
+                    fill: false,
+                    barThickness: 40,
+                    backgroundColor: [
+                        "#8cd6df",
+                        "#ba7fb9",
+                        "#ffd89d",
+                        "#6fb5e6",
+                        "#4e84c2"
+                    ]
                 }]
             }
         });
