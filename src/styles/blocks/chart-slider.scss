@@ -1,12 +1,49 @@
 .chart-slider {
 	position: relative;
-	margin-top: 35px;
+	margin-top: 30px;
+	margin-left: -60px;
+	margin-right: -60px;
 
-	.swiper-wrapper {
-		align-items: center;
+	@include max(d) {
+		margin-left: -20px;
+		margin-right: -20px;
 	}
 
-	&__pagination {
-		margin-top: 35px;
+	@include max(ti) {
+		padding-bottom: 30px;
+	}
+
+	&::before,
+	&::after {
+		position: absolute;
+		z-index: 3;
+		content: "";
+		width: calc(100% - 120px);
+		height: 2px;
+		background-color: rgba($white, 0.3);
+		margin-left: 60px;
+
+		@include max(d) {
+			width: calc(100% - 40px);
+			margin-left: 20px;
+		}
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	.swiper-nav .swiper-btn-next svg,
+	.swiper-nav .swiper-btn-prev svg {
+		color: $white;
+	}
+
+	.swiper-nav .swiper-btn-next:hover svg,
+	.swiper-nav .swiper-btn-prev:hover svg {
+		color: rgba($white, 0.7);
 	}
 }

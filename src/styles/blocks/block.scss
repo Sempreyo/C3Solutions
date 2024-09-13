@@ -6,6 +6,36 @@
 	background-color: $color-background-2;
 	overflow: hidden;
 
+	&--overflow-visible {
+		overflow: visible;
+	}
+
+	&--full {
+		box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+		margin-top: 40px;
+		margin-bottom: 40px;
+		margin-left: calc((-100vw + 1000px) / 2);
+		margin-right: calc((-100vw + 1000px) / 2);
+		padding-left: calc((100vw - 1000px) / 2);
+		padding-right: calc((100vw - 1000px) / 2);
+
+		@include max(1100) {
+			margin-left: -40px;
+			margin-right: -40px;
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+
+		@include max(ti) {
+			margin-top: 30px;
+			margin-bottom: 30px;
+			margin-left: -20px;
+			margin-right: -20px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
 	&--light {
 		background-color: $color-background;
 

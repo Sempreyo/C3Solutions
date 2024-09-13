@@ -160,7 +160,7 @@ ol {
 		}
 	}
 
-	&--outside {
+	&--big {
 		.swiper-btn-prev,
 		.swiper-btn-next {
 			svg {
@@ -173,7 +173,9 @@ ol {
 				}
 			}
 		}
+	}
 
+	&--outside {
 		.swiper-btn-prev {
 			left: -50px;
 
@@ -219,5 +221,15 @@ ol {
 	.swiper-pagination-bullet-active {
 		width: 14px;
 		height: 14px;
+	}
+
+	&--black {
+		.swiper-pagination-bullet {
+			background-color: $black;
+
+			&:hover {
+				background-color: rgba($black, 0.7);
+			}
+		}
 	}
 }

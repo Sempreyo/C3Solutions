@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             display: false
                         },
                         ticks: {
+                            color: "white",
                             display: !w767.matches,
                             beginAtZero: true
                         }
@@ -138,12 +139,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             },
                             name: w767.matches ? {
                                 align: -45,
+                                color: "white",
                                 anchor: "start",
                                 offset: 12,
                                 padding: {
                                     left: 1
                                 },
-                                color: "black",
                                 font: {
                                     size: "13",
                                 },
@@ -220,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         labels: {
                             index: w767.matches ? "" : {
                                 align: "center",
-                                color: "black",
+                                color: "white",
                                 font: {
                                     size: "14",
                                 },
@@ -235,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             name: w767.matches ? "" : {
                                 align: "end",
                                 anchor: "end",
-                                color: "black",
+                                color: "white",
                                 font: {
                                     size: "13",
                                 },
@@ -250,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 padding: {
                                     left: 5
                                 },
-                                color: "black",
+                                color: "white",
                                 font: {
                                     size: w767.matches ? "10" : "13",
                                 },
@@ -311,32 +312,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const clostBg = document.querySelector('.tooltip__closebackground');
     const clostBtn = document.querySelectorAll('.tooltip__close');
 
-    svgParts.forEach(el => {
-        el.addEventListener("click", () => {
-            svgParts.forEach(el => el.classList.remove('-active', '-animate'));
-            el.classList.add('-active');
-            clostBg.classList.add('-open');
+    if (svgParts && svgParts.length > 0) {
+        svgParts.forEach(el => {
+            el.addEventListener("click", () => {
+                svgParts.forEach(el => el.classList.remove('-active', '-animate'));
+                el.classList.add('-active');
+                clostBg.classList.add('-open');
+                tooltips.forEach(el => el.classList.remove('-open'));
+                document.querySelector(".tooltip--" + el.dataset.part).classList.add("-open");
+            });
+
+            el.addEventListener("mouseover", (e) => {
+                let domBlock = document.querySelector(`.tooltip--${el.dataset.part}`);
+                let currentTitle = domBlock.querySelector('.tooltip__title').innerHTML;
+                hint.classList.add("-open");
+                hint.innerHTML = currentTitle;
+            });
+
+            el.addEventListener("mouseleave", () => {
+                hint.classList.remove("-open");
+
+            });
+
+            el.addEventListener('mousemove', (e) => {
+                hint.style.top = e.pageY - hint.offsetHeight - 30 +'px';
+                hint.style.left = e.pageX - hint.offsetWidth/2 + 'px';
+            });
+        });
+
+        document.addEventListener('scroll', ()=>{
             tooltips.forEach(el => el.classList.remove('-open'));
-            document.querySelector(".tooltip--" + el.dataset.part).classList.add("-open");
+            svgParts.forEach(el => el.classList.remove('-active'));
+            clostBg.classList.remove('-open');
         });
 
-        el.addEventListener("mouseover", (e) => {
-            let domBlock = document.querySelector(`.tooltip--${el.dataset.part}`);
-            let currentTitle = domBlock.querySelector('.tooltip__title').innerHTML;
-            hint.classList.add("-open");
-            hint.innerHTML = currentTitle;
-        });
+        /*Закрытие окна*/
+        clostBtn.forEach(t => {
+            t.addEventListener("click", () => {
+                tooltips.forEach(el => el.classList.remove('-open'));
+                svgParts.forEach(el => el.classList.remove('-active'));
+                clostBg.classList.remove('-open');
+            });
+        })
 
-        el.addEventListener("mouseleave", () => {
-            hint.classList.remove("-open");
-
+        clostBg.addEventListener("click", () => {
+            tooltips.forEach(el => el.classList.remove('-open'));
+            svgParts.forEach(el => el.classList.remove('-active'));
+            clostBg.classList.remove('-open');
         });
-
-        el.addEventListener('mousemove', (e) => {
-            hint.style.top = e.pageY - hint.offsetHeight - 30 +'px';
-            hint.style.left = e.pageX - hint.offsetWidth/2 + 'px';
-        });
-    });
+    }
 
     /* Якорь к элементу */
     /*
@@ -354,26 +378,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     */
-
-    document.addEventListener('scroll', ()=>{
-        tooltips.forEach(el => el.classList.remove('-open'));
-        svgParts.forEach(el => el.classList.remove('-active'));
-        clostBg.classList.remove('-open');
-    });
-
-    /*Закрытие окна*/
-    clostBtn.forEach(t => {
-        t.addEventListener("click", () => {
-            tooltips.forEach(el => el.classList.remove('-open'));
-            svgParts.forEach(el => el.classList.remove('-active'));
-            clostBg.classList.remove('-open');
-        });
-    })
-
-    clostBg.addEventListener("click", () => {
-        tooltips.forEach(el => el.classList.remove('-open'));
-        svgParts.forEach(el => el.classList.remove('-active'));
-        clostBg.classList.remove('-open');
-    });
-
 });
