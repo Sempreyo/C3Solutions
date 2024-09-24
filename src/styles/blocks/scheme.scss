@@ -74,8 +74,22 @@
 	&__title {
 		font-size: 32px;
 		text-transform: uppercase;
+
 		@include max(tl) {
 			font-size: 24px;
+		}
+
+		&--offset {
+			position: relative;
+			margin-bottom: -80px;
+
+			@include max(tl) {
+				margin-bottom: 0;
+			}
+
+			@include max(ti) {
+				margin-bottom: -30px;
+			}
 		}
 	}
 

@@ -1,11 +1,12 @@
 .articles {
 	position: relative;
-	padding: 0 40px 70px;
+	padding: 0 0 70px;
 
 	&__dots {
 		position: absolute;
 		top: 263px;
 		left: -34px;
+		z-index: -1;
 		color: rgba(92, 132, 143, 0.44);
 
 		@include max(d) {

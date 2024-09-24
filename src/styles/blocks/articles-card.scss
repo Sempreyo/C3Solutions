@@ -11,6 +11,10 @@
 		align-items: center;
 	}
 
+	&--offset-top {
+		margin-top: 50px;
+	}
+
 	&__photo {
 		max-width: 148px;
 		width: 100%;
