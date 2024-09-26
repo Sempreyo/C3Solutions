@@ -1,0 +1,25 @@
+.webinar-list {
+	padding: 15px 0 0;
+
+	ul {
+		li {
+			position: relative;
+			font-size: 14px;
+			padding-left: 10px;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 6px;
+				left: 0;
+				width: 5px;
+				height: 5px;
+				background-color: $white;
+			}
+
+			& + li {
+				margin-top: 8px;
+			}
+		}
+	}
+}

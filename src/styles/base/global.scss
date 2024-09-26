@@ -124,6 +124,22 @@ ol {
 	}
 }
 
+.d-none-tablet {
+	display: none;
+
+	@include max(ti) {
+		display: block;
+	}
+}
+
+.d-none-mobile-tablet {
+	display: block;
+
+	@include max(ti) {
+		display: none;
+	}
+}
+
 [hidden] {
 	display: none !important;
 }

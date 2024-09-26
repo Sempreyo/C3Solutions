@@ -323,13 +323,8 @@
     }
 
     &__list {
-        list-style: inside;
-        margin: 20px 0 40px;
-        padding-left: 10px;
-
-        @include max(ti) {
-            padding-left: 0;
-        }
+        list-style: inside !important;
+        margin: 20px 0 40px !important;
 
         li + li {
             margin-top: 10px;
@@ -338,7 +333,6 @@
         li {
             color: $white;
             font-size: 14px;
-            padding-left: 10px;
         }
     }
 
