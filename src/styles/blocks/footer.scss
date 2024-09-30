@@ -2,6 +2,7 @@
 	$parent: &;
 
 	position: relative;
+	z-index: 10;
 	padding: 50px 0;
 
 	&__bg {
@@ -105,7 +106,7 @@
 	&__adv-tooltip {
 		position: absolute;
 		left: 0;
-		bottom: calc(100% + 5px);
+		bottom: 100%;
 		width: 270px;
 		border: 2px solid $white;
 		background: rgba(48, 194, 198, 0.7);
@@ -115,5 +116,24 @@
 		opacity: 0;
 		pointer-events: none;
 		transition: 0.3s ease;
+	}
+
+	&__adv-tooltip-block {
+		font-size: 12px;
+		line-height: 1.2;
+
+		a {
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		& + #{$parent}__adv-tooltip-block {
+			margin-top: 12px;
+			padding-top: 12px;
+			border-top: 1px solid $white;
+		}
 	}
 }
